@@ -1,0 +1,221 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+      display: none;
+  }
+  .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+}
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Helvetica, sans-serif;
+  background-color: black;
+}
+
+/* .text-stroke-3 {
+  -webkit-text-stroke: 0.2px blue;
+} */
+
+.spline-container {
+  /* position: absolute; */
+  display: inline-block;
+  width: 100vw; 
+  height: 100vh;
+  border: 2px solid silver; 
+  border-radius: 15px; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  backdrop-filter: blur(10px); 
+  background: rgba(255, 255, 255, 0.1); 
+  overflow: hidden; 
+}
+
+.content-overlay {
+  position: relative;
+  padding: 20px;
+}
+
+.centered-button-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* z-index: 3; */
+}
+
+.glass-button {
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.glass-button-rounded {
+  padding: 1rem 1rem;
+  font-size: 1.25rem;
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.bw-button {
+  padding: 0.5rem 2rem;
+  font-size: 1.25rem;
+  color: white;
+  background: #edede6;
+  border-radius: 50px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+#search {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  /* border: 0.5px solid rgba(255, 255, 255, 0.3); */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  height: 7vh;
+}
+
+
+#search:focus-within {
+  outline: solid;
+  outline-color: #ffffff;
+  border-radius: 2rem;
+  outline-width: 0.1rem;
+}
+
+.parent {
+  position: relative;
+  overflow: hidden;
+  height: 70vh;
+  width: 100%;
+}
+
+.inside {
+  overflow-y: auto;
+  height: 100%; 
+  width: 100%; 
+}
+
+@keyframes animatePathTwo {
+  0%  {d: path("M0 0H1000V1000H0V0Z M510.974 189.041C643.908 191.717 702.689 340.731 739.002 468.637C769.952 577.653 766.832 702.095 675.792 769.579C582.534 838.706 455.055 817.186 361.502 748.458C269.632 680.967 223.391 568.98 252.818 458.847C288.341 325.898 373.389 186.27 510.974 189.041Z");}
+  33%  {d: path("M0 0H1000V1000H0V0Z M501.436 199C630.47 198.904 735.374 295.97 773.674 419.189C810.421 537.407 768.634 664.803 669.109 738.427C566.801 814.109 426.989 826.616 324.049 751.797C221.161 677.016 191.577 540.703 230.44 419.593C269.786 296.978 372.663 199.096 501.436 199Z");}
+  66% {d: path("M0 0H1000V1000H0V0Z M548.71 205.703C674.685 213.367 747.669 333.692 783.983 454.563C817.217 565.18 809.175 693.007 715.354 760.373C622.786 826.84 502.976 787.684 408.228 724.365C295.931 649.32 169.732 549.71 205.042 419.343C244.029 275.403 399.858 196.648 548.71 205.703Z")}
+  100%  {d: path("M0 0H1000V1000H0V0Z M510.974 189.041C643.908 191.717 702.689 340.731 739.002 468.637C769.952 577.653 766.832 702.095 675.792 769.579C582.534 838.706 455.055 817.186 361.502 748.458C269.632 680.967 223.391 568.98 252.818 458.847C288.341 325.898 373.389 186.27 510.974 189.041Z");}
+}
+
+@keyframes animatePathOne {
+  0% {d: path("M0 0H1000V1000H0V0Z M469.932 195.841C555.056 201.38 636.015 225.622 695.565 286.7C764.492 357.395 833.654 448.405 809.522 544.146C785.698 638.663 675.341 668.553 588.273 712.373C497.99 757.811 400.144 844.036 312.028 794.527C225.017 745.637 262.625 616.287 243.074 518.415C224.764 426.75 150.427 331.183 204.2 254.722C259.11 176.645 374.681 189.642 469.932 195.841Z")}
+  33% {d: path("M0 0H1000V1000H0V0Z M515.559 165.714C601.28 174.662 626.14 281.163 679.089 349.168C730.601 415.328 814.069 463.572 812.748 547.41C811.129 650.126 762.395 755.61 671.916 804.259C577.775 854.877 462.512 835.971 367.638 786.739C276.419 739.403 203.458 655.808 189.605 553.976C176.886 460.482 242.1 382.149 302.768 309.884C360.726 240.847 425.905 156.355 515.559 165.714Z")}
+  66% {d: path("M0 0H1000V1000H0V0Z M536.963 193.698C622.191 188.963 716.919 207.393 765.435 277.624C811.726 344.636 767.924 429.191 755.214 509.639C740.381 603.532 765.556 718.055 687.323 772.049C602.122 830.853 484.82 806.657 392.377 760.061C302.097 714.555 225.943 633.92 214.095 533.517C203.276 441.824 274.654 368.291 338.25 301.356C392.843 243.897 457.826 198.094 536.963 193.698Z")}
+  100% {d: path("M0 0H1000V1000H0V0Z M469.932 195.841C555.056 201.38 636.015 225.622 695.565 286.7C764.492 357.395 833.654 448.405 809.522 544.146C785.698 638.663 675.341 668.553 588.273 712.373C497.99 757.811 400.144 844.036 312.028 794.527C225.017 745.637 262.625 616.287 243.074 518.415C224.764 426.75 150.427 331.183 204.2 254.722C259.11 176.645 374.681 189.642 469.932 195.841Z")}
+}
+
+@keyframes animatePathThree {
+  0% {d: path("M0 0H1000V1000H0V0Z M484.334 186.367C565.612 191.676 611.191 271.097 665.214 332.055C725.586 400.177 816.939 459.404 806.439 549.82C795.252 646.161 702.726 706.353 616.577 750.907C526.316 797.588 421.503 840.965 330.357 796.038C239.816 751.408 206.052 642.796 193.943 542.582C183.485 456.039 216.1 373.884 271.181 306.318C325.379 239.834 398.74 180.777 484.334 186.367Z")}
+  33% {d: path("M0 0H1000V1000H0V0Z M513.404 207.504C598.841 200.553 668.835 266.708 723.125 333.043C778.524 400.732 822.05 481.2 808.075 567.546C793.054 660.36 738.025 750.827 650.113 784.167C567.901 815.345 487.89 755.879 407.937 719.295C324.579 681.154 207.283 664.102 190.682 573.948C174.227 484.588 282.462 432.198 342.515 364.009C396.225 303.023 432.406 214.094 513.404 207.504Z")}
+  66% {d: path("M0 0H1000V1000H0V0Z M464.907 204.621C556.383 191.479 638.121 260.391 694.842 333.352C750.589 405.059 778.859 495.222 759.878 584.044C740.575 674.38 685.408 764.191 597.032 791.078C517.007 815.425 447.388 744.803 376.284 700.747C319.221 665.392 252.807 633.984 237.863 568.54C222.917 503.091 269.636 446.292 305.171 389.334C350.503 316.674 380.137 216.8 464.907 204.621Z")}
+  100% {d: path("M0 0H1000V1000H0V0Z M484.334 186.367C565.612 191.676 611.191 271.097 665.214 332.055C725.586 400.177 816.939 459.404 806.439 549.82C795.252 646.161 702.726 706.353 616.577 750.907C526.316 797.588 421.503 840.965 330.357 796.038C239.816 751.408 206.052 642.796 193.943 542.582C183.485 456.039 216.1 373.884 271.181 306.318C325.379 239.834 398.74 180.777 484.334 186.367Z")}
+}
+
+.cont {
+  position: relative;
+  overflow: hidden;
+  height: 30vw;
+  width: 30vw;
+}
+
+.cont:hover .hehe {
+  transform: scale(3) translate(0%, 0%);
+}
+
+.hehe {
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  position: absolute;
+  transition: transform 0.5s ease-in;
+  transform: scale(1.45)
+}
+
+.keke {
+  transition: transform 0.5s ease-in;
+}
+
+.hehe .pathOne {
+  animation-name: animatePathOne;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.hehe .pathTwo {
+  animation-name: animatePathTwo;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.hehe .pathThree {
+  animation-name: animatePathThree;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.imaege {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.grid > div {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  /* border: 0.5px solid rgba(255, 255, 255, 0.3); */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
